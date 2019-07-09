@@ -1,0 +1,33 @@
+bin_PROGRAMS = test-libmutter
+
+AM_CPPFLAGS = 					\
+	-DBINDIR='"$(bindir)"'			\
+	-DLIBEXECDIR='"$(libexecdir)"'		
+
+test_libmutter_SOURCES = \
+main.c
+
+test_libmutter_CFLAGS = \
+$(WAYLAND_SERVER_CFLAGS) \
+$(LIBMUTTER_CFLAGS) \
+$(MUTTER_CLUTTER_CFLAGS) \
+$(MUTTER_COGL_CFLAGS) \
+$(LIBINPUT_CFLAGS) \
+$(XKBCOMMON_CFLAGS) \
+$(EGL_CFLAGS) \
+$(EVDEV_CFLAGS) \
+$(GTK_CFLAGS) \
+$(LIBXFCONF_CFLAGS)
+
+test_libmutter_LDADD = \
+$(WAYLAND_SERVER_LIBS) \
+$(LIBMUTTER_LIBS) \
+$(MUTTER_CLUTTER_LIBS) \
+$(MUTTER_COGL_LIBS) \
+$(LIBINPUT_LIBS) \
+$(XKBCOMMON_LIBS) \
+$(EGL_LIBS) \
+$(EVDEV_LIBS) \
+$(PIXMAN_LIBS) \
+$(GTK_LIBS) \
+$(LIBXFCONF_LIBS)
